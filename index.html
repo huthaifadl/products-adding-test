@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- BootStrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <!-- Main Style -->
+     <link rel="stylesheet" href="./css/style.css  ">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row w-50 mx-auto mt-5">
+          <label for="name">Product Name</label>
+          <input class="form-control form-control-lg mb-3" id="name" type="text" />
+
+          <label for="price">Product Price</label>
+          <input class="form-control form-control-lg mb-3" id="price" type="number" />
+
+          <label for="category">Product Category</label>
+          <input class="form-control form-control-lg mb-3" id="category" type="text" />
+
+          <label for="img">Product Img</label>
+          <input class="form-control form-control-lg mb-3" id="img" type="file" />
+
+          <label for="desc">Product Desc</label>
+          <textarea type="text" class="form-control form-control-lg mb-3" id="desc"></textarea>
+            <div onclick="addProduct();" class="btn btn-primary text-uppercase">add product</div>
+      </div>
+    </div>
+
+    <!-- BootStrap JS -->
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <!-- Main JS -->
+     <script src="./js/script.js"></script>
+  </body>
+</html>

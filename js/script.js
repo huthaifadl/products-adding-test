@@ -3,13 +3,10 @@ var productPriceInput = document.getElementById("productPrice");
 var productCategoryInput = document.getElementById("productCategory");
 var productImgInput = document.getElementById("productImg");
 var productDescInput = document.getElementById("productDesc");
-var allProduct;
+var allProduct = [];
 
 //Zbon Gdid
-if (localStorage.getItem("product") == null){
-  allProduct = [];
-} else {
-  //Zbon adim leh data
+if (localStorage.getItem("product") != null){
   allProduct = JSON.parse(localStorage.getItem('product'));
   display();
 }
@@ -19,17 +16,17 @@ function addProduct() {
     name: productNameInput.value,
     price: productPriceInput.value,
     category: productCategoryInput.value,
-    img: productImgInput.value,
+    img: productImgInput.files[0]?.name, 
     description: productDescInput.value,
   };
 
   allProduct.push(product);
 
+  localStorage.setItem('product' , JSON.stringify(allProduct));
   console.log(allProduct);
 
-  display()
-  // clearInputs();
-  localStorage.setItem('product' , JSON.stringify(allProduct))
+  display();
+  clearInputs();
 }
   
 function clearInputs() {
@@ -46,7 +43,7 @@ function display() {
     cartoona += `
     <tr>
               <td>${i + 1}</td>
-              <td><img src="${allProduct[i].img}" alt="" /></td>
+              <td><img src="../imgs/${allProduct[i].img}" alt="" /></td>
               <td>${allProduct[i].name}</td>
               <td>${allProduct[i].price}</td>
               <td>${allProduct[i].category}</td>

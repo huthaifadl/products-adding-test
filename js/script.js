@@ -43,7 +43,7 @@ function display() {
     cartoona += `
     <tr>
               <td>${i + 1}</td>
-              <td><img src="../imgs/${allProduct[i].img}" alt="" /></td>
+              <td><img src="/imgs/${allProduct[i].img}" alt="" /></td>
               <td>${allProduct[i].name}</td>
               <td>${allProduct[i].price}</td>
               <td>${allProduct[i].category}</td>

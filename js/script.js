@@ -6,8 +6,8 @@ var productDescInput = document.getElementById("productDesc");
 var allProduct = [];
 
 //Zbon Gdid
-if (localStorage.getItem("product") != null){
-  allProduct = JSON.parse(localStorage.getItem('product'));
+if (localStorage.getItem("product") != null) {
+  allProduct = JSON.parse(localStorage.getItem("product"));
   display();
 }
 
@@ -16,19 +16,19 @@ function addProduct() {
     name: productNameInput.value,
     price: productPriceInput.value,
     category: productCategoryInput.value,
-    img: productImgInput.files[0]?.name, 
+    img: productImgInput.files[0]?.name,
     description: productDescInput.value,
   };
 
   allProduct.push(product);
 
-  localStorage.setItem('product' , JSON.stringify(allProduct));
+  localStorage.setItem("product", JSON.stringify(allProduct));
   console.log(allProduct);
 
   display();
   clearInputs();
 }
-  
+
 function clearInputs() {
   productNameInput.value = "";
   productPriceInput.value = "";
@@ -38,7 +38,7 @@ function clearInputs() {
 }
 
 function display() {
-  var cartoona = ""
+  var cartoona = "";
   for (var i = 0; i < allProduct.length; i++) {
     cartoona += `
     <tr>
@@ -48,8 +48,15 @@ function display() {
               <td>${allProduct[i].price}</td>
               <td>${allProduct[i].category}</td>
               <td>${allProduct[i].description}</td>
+              <td><button onclick="deleteProduct(${i})" class="btn btn-danger">delete</button></td>
             </tr>
     `;
   }
-  document.getElementById("demo").innerHTML = cartoona
+  document.getElementById("demo").innerHTML = cartoona;
+}
+
+function deleteProduct(index) {
+  allProduct.splice(index, 1);
+  localStorage.setItem("product", JSON.stringify(allProduct));
+  display();
 }

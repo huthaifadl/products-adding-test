@@ -40,10 +40,12 @@ function clearInputs() {
 function display() {
   var cartoona = "";
   for (var i = 0; i < allProduct.length; i++) {
+    //اسنبدلها بقيم الصورة في الاسفل لجعلها متغيرة
+    //"/imgs/${allProduct[i].img}"
     cartoona += `
     <tr>
               <td>${i + 1}</td>
-              <td><img src="/imgs/${allProduct[i].img}" alt="" /></td>
+              <td><img src="/imgs/travel.png" alt="" /></td>
               <td>${allProduct[i].name}</td>
               <td>${allProduct[i].price}</td>
               <td>${allProduct[i].category}</td>

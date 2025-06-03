@@ -3,7 +3,16 @@ var productPriceInput = document.getElementById("productPrice");
 var productCategoryInput = document.getElementById("productCategory");
 var productImgInput = document.getElementById("productImg");
 var productDescInput = document.getElementById("productDesc");
-var allProduct = [];
+var allProduct;
+
+//Zbon Gdid
+if (localStorage.getItem("product") == null){
+  allProduct = [];
+} else {
+  //Zbon adim leh data
+  allProduct = JSON.parse(localStorage.getItem('product'));
+  display();
+}
 
 function addProduct() {
   var product = {
@@ -19,9 +28,10 @@ function addProduct() {
   console.log(allProduct);
 
   display()
-  clearInputs();
+  // clearInputs();
+  localStorage.setItem('product' , JSON.stringify(allProduct))
 }
-
+  
 function clearInputs() {
   productNameInput.value = "";
   productPriceInput.value = "";
